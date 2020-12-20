@@ -15,15 +15,32 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var bitcoinLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
     
-    let coinManager = CoinManager()
+    var coinManager = CoinManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         currencyPicker.dataSource = self
         currencyPicker.delegate = self
+        
+        getPrivateApiKey()
     }
 
+    func getPrivateApiKey() {
+        if let path = Bundle.main.path(forResource: "Configuration", ofType: "plist") {
+            if let keys = NSDictionary(contentsOfFile: path) {
+                coinManager.apiKey = keys["privateKey"] as? String
+            }
+            
+        }
+//        if let dict = keys {
+//            let applicationId = dict["privateKey"] as? String
+//            let clientKey = dict["parseClientKey"] as? String
+//
+//            // Initialize Parse.
+////            Parse.setApplicationId(applicationId!, clientKey: clientKey!)
+//        }
+    }
     //MARK: - UIPickerViewDataSource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
