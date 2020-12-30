@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-   
 
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var bitcoinLabel: UILabel!
@@ -33,13 +32,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             }
             
         }
-//        if let dict = keys {
-//            let applicationId = dict["privateKey"] as? String
-//            let clientKey = dict["parseClientKey"] as? String
-//
-//            // Initialize Parse.
-////            Parse.setApplicationId(applicationId!, clientKey: clientKey!)
-//        }
+
     }
     //MARK: - UIPickerViewDataSource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
